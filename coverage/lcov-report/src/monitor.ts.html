@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/monitor.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> monitor.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">44.83% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>13/29</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">44.83% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>13/29</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { CurrencyPairTradesCounter } from "./currency_pair";
+&nbsp;
+export class Monitor {
+  public currencyPairs: {
+    [symbol: string]: CurrencyPairTradesCounter
+  } = {};
+&nbsp;
+  public flaggedPairs = new Set&lt;string&gt;();
+  
+  public addCurrencyPairTradeCounter(currencyPair: CurrencyPairTradesCounter) {
+<span class="fstat-no" title="function not covered" >    th</span>is.currencyPairs[currencyPair.symbol] = currencyPair;
+  }<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  private printOnScreen(el<span class="cstat-no" title="statement not covered" >apsedSeconds: number) {</span>
+    this.clearScreen();<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+    for (let symbol in this.curr<span class="cstat-no" title="statement not covered" >encyPairs) {</span>
+      const <span class="cstat-no" title="statement not covered" >rate1 = this.currencyPairs[symbol].getRate(1);</span>
+      const rate<span class="cstat-no" title="statement not covered" >2 = this.currencyPairs[symbol].</span>getRate(2);
+      const max120 = this.currencyPairs[symbol].getMaximum(30);
+      const average30d5 = th<span class="cstat-no" title="statement not covered" >is.currencyPairs[symbol].getRa</span>te(30, 5);
+      if (ra<span class="cstat-no" title="statement not covered" >te2 &gt;= 100) {</span>
+        this.flaggedPairs.add(symbol);
+      }<span class="cstat-no" title="statement not covered" ></span>
+      co<span class="cstat-no" title="statement not covered" >nst flagged = this.flaggedPairs.has(</span>symbol);
+      co<span class="cstat-no" title="statement not covered" >nsole.log(`${symbol}: ${rate1}/${rate2}/${average30</span>d5}/${max120}${flagged ? '/FLAGGED' : ''}`);
+    }
+    console.log(`Elapsed seconds: ${elapsedSeconds}`);
+    console.log(`Time: ${new Date()}`);
+    console.log(`Flagged: ${this.flaggedPairs.size}`);
+  }
+&nbsp;
+  private checkCondition(symbol: string) {
+<span class="fstat-no" title="function not covered" >    co</span>nst rate2 = this.currencyPairs[symbol].getRate(2, 0);
+    if (<span class="cstat-no" title="statement not covered" >rate2 &gt;= 100) {</span>
+      this.flaggedPairs.add(symbol);
+    }
+  }
+&nbsp;
+  private clearScreen() {
+    process.stdout.write("\x1B[2J");
+  }
+&nbsp;
+  public startMonito<span class="fstat-no" title="function not covered" >ri</span>ng() {
+    for (let<span class="cstat-no" title="statement not covered" > symbol in this.curre</span>ncyPairs) {
+      this.c<span class="cstat-no" title="statement not covered" >urrencyPairs[symbol].subscribeToChan</span>ge(() =&gt; {
+        this.checkCondition(symbol);
+      });
+    }
+&nbsp;
+    let elapsedSeconds = 0;
+    setInterval(() =&gt; {
+      elapsedSeconds += 1;
+      this.printOnScreen(elapsedSeconds);
+    }, 1000);
+  }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jan 15 2018 13:46:14 GMT-0800 (PST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
